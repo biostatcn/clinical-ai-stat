@@ -4,11 +4,6 @@ title: "内容管理"
 
 # 内容管理 (CMS)
 
-<article class="md-content__inner md-typeset">
-<p style="font-size:1.1em; color:var(--md-default-fg-color--light);">
-  通过 Decap CMS 可视化编辑本站内容。
-</p>
-
 <div class="card" style="text-align:center; padding:2rem; margin:1rem 0;">
   <h3>📝 打开内容管理器</h3>
   <p style="margin:1rem 0;">
@@ -17,7 +12,7 @@ title: "内容管理"
     </a>
   </p>
   <p style="font-size:0.9em; color:var(--md-default-fg-color--light);">
-    ⚠️ 需要 GitHub 登录认证。仅在生产部署后可用。
+    使用 GitHub Personal Access Token 登录，编辑内容后自动提交到仓库。
   </p>
 </div>
 
@@ -25,67 +20,36 @@ title: "内容管理"
 
 | 操作 | 说明 |
 |------|------|
-| **编辑内容** | 选择对应模块 → 点击页面 → 编辑 → 保存 |
-| **新建页面** | 点击"新建" → 填写标题和内容 → 保存为草稿 |
-| **发布流程** | 草稿 → 审核 → 发布（自动提交到 GitHub） |
-| **上传图片** | 编辑器中拖入图片，自动上传至 `assets/uploads/` |
-
-## 注意事项
-
-- 编辑保存后会**自动创建 Git 提交**到 GitHub 仓库
-- 站点会在 GitHub Actions 中自动重新构建部署（约 1-2 分钟）
-- 首次使用需要完成下方 **GitHub OAuth 配置**
+| **编辑内容** | 选择文件 → 编辑 Markdown → 点击"保存" |
+| **保存后** | 自动创建 Git 提交到 GitHub，触发 Actions 部署 |
+| **部署时间** | 约 1-2 分钟 |
 
 ## 首次使用配置
 
-⚠️ **社区 OAuth 代理 `cms-auth-github.vercel.app` 已失效，需要自行部署 OAuth 代理才能登录 CMS。**
+### 1. 创建 GitHub Personal Access Token
 
-### 完整配置步骤（约 15 分钟）
+1. 打开 https://github.com/settings/tokens?type=beta
+2. 点击 **"Generate new token"** → **"Fine-grained token"**
+3. 填写：
+   - **Token name**: `clinical-ai-stat-cms`
+   - **Repository access**: 选择 **"Only select repositories"** → 选择 `biostatcn/clinical-ai-stat`
+   - **Permissions** → **Contents** → 勾选 **"Read and write"**
+4. 点击 **"Generate token"**
+5. **复制生成的 token**（离开页面后就看不到了）
 
-#### 步骤 1：部署 OAuth 代理到 Vercel（免费）
+### 2. 登录 CMS
 
-1. 打开 [netlify-cms-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-provider)
-2. 点击 **"Deploy to Vercel"** 按钮
-3. 登录 Vercel（可用 GitHub 账号直接登录）
-4. 在环境变量中先填写占位值：
-   - `CLIENT_ID` → 填 `placeholder`
-   - `CLIENT_SECRET` → 填 `placeholder`
-5. 部署完成，会得到一个 URL（如 `https://xxx.vercel.app`）
+1. 打开 https://biostatcn.github.io/clinical-ai-stat/admin/
+2. 粘贴刚才复制的 token
+3. 点击 **"连接 GitHub"**
 
-#### 步骤 2：创建 GitHub OAuth App
+### 3. 开始编辑
 
-前往 GitHub → Settings → Developer settings → [OAuth Apps](https://github.com/settings/developers) → New OAuth App：
+登录后可以看到本站所有 markdown 文件列表，按模块分组。点击任意文件即可在浏览器中编辑。
 
-| 字段 | 值 |
-|------|-----|
-| Application name | `clinical-ai-stat-cms` |
-| Homepage URL | `https://biostatcn.github.io/clinical-ai-stat/` |
-| Authorization callback URL | `https://你的-vercel-url.vercel.app/api/auth` |
+## 注意事项
 
-#### 步骤 3：配置 Vercel 环境变量
-
-1. 记录 OAuth App 的 **Client ID** 和 **Client Secret**
-2. 回到 Vercel 项目设置 → Environment Variables
-3. 更新：
-   - `CLIENT_ID` → 填入 OAuth App 的 Client ID
-   - `CLIENT_SECRET` → 填入 OAuth App 的 Client Secret
-4. 重新部署 Vercel 项目
-
-#### 步骤 4：更新本站配置
-
-修改 `docs/admin/config.yml` 中的 `base_url` 为你的 Vercel URL：
-
-```yaml
-backend:
-  name: github
-  repo: biostatcn/clinical-ai-stat
-  branch: master
-  base_url: https://你的-vercel-url.vercel.app
-  auth_endpoint: api/auth
-```
-
-然后执行 `git add . && git commit -m "update CMS OAuth URL" && git push`
-
-#### 步骤 5：访问 CMS
-
-部署完成后，访问 `https://biostatcn.github.io/clinical-ai-stat/admin/`，点击 **"Login with GitHub"** 即可。
+- Token 仅保存在你的浏览器本地存储中，不会发送到第三方服务器
+- 如果 Token 泄露，可以在 GitHub 设置中随时撤销
+- 编辑保存后会**自动创建 Git 提交**并触发 GitHub Actions 部署
+- 可使用 `/cms/` 页面或首页的"⚙️ 内容管理"入口访问
