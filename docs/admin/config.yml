@@ -4,9 +4,14 @@
 backend:
   name: github
   repo: biostatcn/clinical-ai-stat
-  branch: main
+  branch: master
   # OAuth proxy for GitHub authentication
-  # You can deploy your own: https://github.com/vencax/netlify-cms-github-oauth-provider
+  # Deploy your own via Vercel (free):
+  #   1. Fork https://github.com/vencax/netlify-cms-github-oauth-provider
+  #   2. Click "Deploy to Vercel" in that repo
+  #   3. Create GitHub OAuth App, set callback to your Vercel URL
+  #   4. Set Vercel env vars: CLIENT_ID, CLIENT_SECRET
+  #   5. Update base_url below to your Vercel URL
   base_url: https://cms-auth-github.vercel.app
   auth_endpoint: api/auth
 

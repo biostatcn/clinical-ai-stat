@@ -38,7 +38,21 @@ title: "内容管理"
 
 ## 首次使用配置
 
-### 1. 创建 GitHub OAuth App
+⚠️ **社区 OAuth 代理 `cms-auth-github.vercel.app` 已失效，需要自行部署 OAuth 代理才能登录 CMS。**
+
+### 完整配置步骤（约 15 分钟）
+
+#### 步骤 1：部署 OAuth 代理到 Vercel（免费）
+
+1. 打开 [netlify-cms-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-provider)
+2. 点击 **"Deploy to Vercel"** 按钮
+3. 登录 Vercel（可用 GitHub 账号直接登录）
+4. 在环境变量中先填写占位值：
+   - `CLIENT_ID` → 填 `placeholder`
+   - `CLIENT_SECRET` → 填 `placeholder`
+5. 部署完成，会得到一个 URL（如 `https://xxx.vercel.app`）
+
+#### 步骤 2：创建 GitHub OAuth App
 
 前往 GitHub → Settings → Developer settings → [OAuth Apps](https://github.com/settings/developers) → New OAuth App：
 
@@ -46,21 +60,32 @@ title: "内容管理"
 |------|-----|
 | Application name | `clinical-ai-stat-cms` |
 | Homepage URL | `https://biostatcn.github.io/clinical-ai-stat/` |
-| Authorization callback URL | `https://cms-auth-github.vercel.app/api/auth` |
+| Authorization callback URL | `https://你的-vercel-url.vercel.app/api/auth` |
 
-### 2. 获取 Client ID 和 Secret
+#### 步骤 3：配置 Vercel 环境变量
 
-创建后记录 **Client ID**，并生成 **Client Secret**。
+1. 记录 OAuth App 的 **Client ID** 和 **Client Secret**
+2. 回到 Vercel 项目设置 → Environment Variables
+3. 更新：
+   - `CLIENT_ID` → 填入 OAuth App 的 Client ID
+   - `CLIENT_SECRET` → 填入 OAuth App 的 Client Secret
+4. 重新部署 Vercel 项目
 
-### 3. 配置 OAuth Proxy
+#### 步骤 4：更新本站配置
 
-本项目使用社区托管的 OAuth 代理 `https://cms-auth-github.vercel.app`。
-如需要更高的安全性，可以自行部署：
+修改 `docs/admin/config.yml` 中的 `base_url` 为你的 Vercel URL：
 
-1. Fork [netlify-cms-github-oauth-provider](https://github.com/vencax/netlify-cms-github-oauth-provider)
-2. 在 Vercel 上部署，设置环境变量 `CLIENT_ID` 和 `CLIENT_SECRET`
-3. 修改 `docs/admin/config.yml` 中的 `base_url` 指向你自己的代理地址
+```yaml
+backend:
+  name: github
+  repo: biostatcn/clinical-ai-stat
+  branch: master
+  base_url: https://你的-vercel-url.vercel.app
+  auth_endpoint: api/auth
+```
 
-### 4. 访问 CMS
+然后执行 `git add . && git commit -m "update CMS OAuth URL" && git push`
 
-部署完成后，访问 `https://biostatcn.github.io/clinical-ai-stat/admin/` 开始使用。
+#### 步骤 5：访问 CMS
+
+部署完成后，访问 `https://biostatcn.github.io/clinical-ai-stat/admin/`，点击 **"Login with GitHub"** 即可。
