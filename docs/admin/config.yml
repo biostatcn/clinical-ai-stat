@@ -12,7 +12,7 @@ backend:
   #   3. Create GitHub OAuth App, set callback to your Vercel URL
   #   4. Set Vercel env vars: CLIENT_ID, CLIENT_SECRET
   #   5. Update base_url below to your Vercel URL
-  base_url: https://cms-auth-github.vercel.app
+  base_url: https://clinical-ai-stat-3t74juaz9-biostatcns-projects.vercel.app
   auth_endpoint: api/auth
 
 # Publish mode: save as draft, then publish
