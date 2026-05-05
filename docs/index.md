@@ -56,10 +56,6 @@ title: "Clinical AI Stat"
     <h3>📚 参考资料</h3>
     <p>ICH E6/E9/E10、FDA 指南、临床试验统计术语表</p>
   </a>
-  <a href="cms/" class="card" style="text-decoration:none;">
-    <h3>⚙️ 内容管理</h3>
-    <p>在线编辑站点内容，自动提交到 GitHub</p>
-  </a>
 </div>
 
 ---

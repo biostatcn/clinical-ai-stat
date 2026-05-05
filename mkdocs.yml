@@ -61,7 +61,6 @@ plugins:
         - en
   - glightbox
   - git-revision-date-localized:
-      enable_creation_date: true
       fallback_to_build_date: true
   - minify:
       minify_html: true
@@ -110,6 +109,7 @@ markdown_extensions:
 
 extra_javascript:
   - javascripts/mathjax.js
+  - javascripts/header-link.js
   - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
 extra_css:
@@ -176,5 +176,3 @@ nav:
     - references/index.md
     - 监管指南: references/regulatory-guidance.md
     - 术语表: references/glossary.md
-
-  - 内容管理: cms.md
