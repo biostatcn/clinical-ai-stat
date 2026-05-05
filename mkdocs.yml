@@ -115,6 +115,9 @@ extra_javascript:
 extra_css:
   - stylesheets/extra.css
 
+hooks:
+  - hooks/recent_updates.py
+
 nav:
   - 首页: index.md
 
