@@ -116,8 +116,6 @@ extra_css:
   - stylesheets/extra.css
 
 nav:
-  - 首页: index.md
-
   - 统计方法:
     - methods/index.md
     - 描述性统计: methods/00-descriptive-stat.md
