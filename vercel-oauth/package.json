@@ -1,0 +1,9 @@
+{
+  "name": "clinical-ai-stat-cms-oauth",
+  "version": "1.0.0",
+  "private": true,
+  "description": "OAuth proxy for Decap CMS on Vercel",
+  "dependencies": {
+    "@openlab/vercel-netlify-cms-github": "^1.1.1"
+  }
+}
