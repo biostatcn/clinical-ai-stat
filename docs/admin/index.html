@@ -257,14 +257,33 @@ function checkToken() {
 // ============================================================
 async function gh(path, options = {}) {
   const url = path.startsWith('http') ? path : `${API}${path}`;
-  const resp = await fetch(url, {
-    ...options,
-    headers: {
-      'Authorization': `Bearer ${token}`,
-      'Accept': 'application/vnd.github+json',
-      ...(options.headers || {}),
-    },
-  });
+
+  // 15-second timeout to prevent infinite loading on blocked networks
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 15000);
+
+  let resp;
+  try {
+    resp = await fetch(url, {
+      ...options,
+      signal: controller.signal,
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/vnd.github+json',
+        ...(options.headers || {}),
+      },
+    });
+  } catch (err) {
+    clearTimeout(timeout);
+    if (err.name === 'AbortError') {
+      showStatus('连接超时：无法访问 GitHub API，请检查你的网络是否屏蔽了 api.github.com', 'error');
+    } else {
+      showStatus(`网络错误：${err.message}`, 'error');
+    }
+    return null;
+  }
+  clearTimeout(timeout);
+
   if (resp.status === 401) {
     showStatus('Token 无效或已过期，请重新输入', 'error');
     localStorage.removeItem('github_token');
@@ -432,8 +451,8 @@ function renderFileList(files) {
 // Refresh file list from GitHub
 // ============================================================
 async function refreshFileList() {
-  showStatus('正在加载文件列表...', 'info');
-  document.getElementById('file-list-container').innerHTML = '<div class="loading">加载中...</div>';
+  showStatus('正在从 GitHub 加载文件列表（约 5-10 秒）...', 'info');
+  document.getElementById('file-list-container').innerHTML = '<div class="loading">加载中，请稍候...</div>';
 
   // Get the full git tree
   const tree = await gh(`/repos/${OWNER}/${REPO}/git/trees/${BRANCH}?recursive=1`);
