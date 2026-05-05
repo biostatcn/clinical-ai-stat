@@ -6,3 +6,5 @@ mkdocs-minify-plugin>=0.8.0
 pymdown-extensions>=10.7
 plotly>=5.18.0
 pandas>=2.0.0
+kaleido>=0.2.1
+lifelines>=0.27.0
