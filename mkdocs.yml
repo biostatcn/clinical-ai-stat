@@ -1,0 +1,182 @@
+site_name: Clinical AI Stat
+site_description: 临床试验 AI 统计分析知识库
+site_url: https://shinellm.github.io/clinical-ai-stat/
+site_author: ShineXia
+
+repo_name: shinellm/clinical-ai-stat
+repo_url: https://github.com/shinellm/clinical-ai-stat
+
+theme:
+  name: material
+  language: zh
+  favicon: assets/images/favicon.png
+  logo: assets/images/favicon.png
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: 切换暗色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: 切换亮色模式
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - navigation.tracking
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.tabs
+    - content.tooltips
+    - header.autohide
+    - announce.dismiss
+
+extra:
+  consent:
+    title: Cookie 声明
+    description: 本站使用必要的存储技术以提升浏览体验。
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/shinellm/clinical-ai-stat
+
+copyright: Copyright &copy; 2026 ShineXia
+
+plugins:
+  - search:
+      lang:
+        - zh
+        - en
+  - glightbox
+  - git-revision-date-localized:
+      enable_creation_date: true
+      fallback_to_build_date: true
+  - minify:
+      minify_html: true
+
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+      slugify: !!python/object/apply:pymdownx.slugs.slugify
+        kwds:
+          case: lower
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+extra_css:
+  - stylesheets/extra.css
+
+nav:
+  - 首页: index.md
+
+  - 统计方法:
+    - methods/index.md
+    - 描述性统计: methods/00-descriptive-stat.md
+    - 假设检验: methods/01-hypothesis-test.md
+    - 线性模型 / ANCOVA: methods/02-linear-model.md
+    - 混合效应模型 MMRM: methods/03-mixed-model.md
+    - 生存分析: methods/04-survival-analysis.md
+    - 纵向数据分析: methods/05-longitudinal.md
+    - 缺失数据处理: methods/06-missing-data.md
+    - 非参数方法: methods/07-nonparametric.md
+    - 多重比较校正: methods/08-multiple-testing.md
+    - 样本量计算: methods/09-sample-size.md
+
+  - 可视化图库:
+    - visualization/index.md
+    - 森林图: visualization/01-forest-plot.md
+    - KM 生存曲线: visualization/02-km-curve.md
+    - 箱线图 / 小提琴图: visualization/03-boxplot-violin.md
+    - 泳道图: visualization/04-swimmer-plot.md
+    - 瀑布图: visualization/05-waterfall-plot.md
+    - 火山图: visualization/06-volcano-plot.md
+    - 热图: visualization/07-heatmap.md
+    - CONSORT 流程图: visualization/08-consort-diagram.md
+    - 个体轨迹图: visualization/09-spaghetti-plot.md
+    - 交互作用图: visualization/10-interaction-plot.md
+
+  - AI 工作流:
+    - ai-workflows/index.md
+    - Prompt 模板库: ai-workflows/00-prompt-library.md
+    - AI 辅助分析流程: ai-workflows/01-analysis-pipeline.md
+    - 代码生成技巧: ai-workflows/02-code-generation.md
+    - 结果解读: ai-workflows/03-result-interpret.md
+    - 报告撰写: ai-workflows/04-report-writing.md
+    - 审查清单: ai-workflows/05-review-checklist.md
+
+  - 代码配方:
+    - code-recipes/index.md
+    - R 语言:
+      - code-recipes/R/data-import.md
+      - code-recipes/R/data-cleaning.md
+      - code-recipes/R/analysis-functions.md
+    - SAS 语言:
+      - code-recipes/SAS/data-import.md
+      - code-recipes/SAS/data-cleaning.md
+      - code-recipes/SAS/analysis-macros.md
+    - Python:
+      - code-recipes/python/data-import.md
+      - code-recipes/python/data-cleaning.md
+      - code-recipes/python/analysis-functions.md
+
+  - 报告模板:
+    - report-templates/index.md
+    - 统计分析报告模板: report-templates/analysis-report.md
+    - 表格/图形规范: report-templates/table-figure-spec.md
+    - 输出检查清单: report-templates/output-checklist.md
+
+  - 参考资料:
+    - references/index.md
+    - 监管指南: references/regulatory-guidance.md
+    - 术语表: references/glossary.md
+
+  - 内容管理: cms.md

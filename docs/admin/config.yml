@@ -1,0 +1,190 @@
+# Decap CMS Configuration
+# Docs: https://decapcms.org/docs/configure-decap-cms/
+
+backend:
+  name: github
+  repo: shinellm/clinical-ai-stat
+  branch: main
+  # OAuth proxy for GitHub authentication
+  # You can deploy your own: https://github.com/vencax/netlify-cms-github-oauth-provider
+  base_url: https://cms-auth-github.vercel.app
+  auth_endpoint: api/auth
+
+# Publish mode: save as draft, then publish
+publish_mode: editorial_workflow
+
+media_folder: "docs/assets/uploads"
+public_folder: "/clinical-ai-stat/assets/uploads"
+
+# ============================================================
+# Collections
+# ============================================================
+
+collections:
+  # ---------- 统计方法 ----------
+  - name: methods
+    label: "统计方法"
+    label_singular: "方法"
+    folder: docs/methods
+    create: true
+    delete: true
+    path: "{{slug}}"
+    preview_path: "methods/{{slug}}"
+    fields:
+      - label: "标题"
+        name: title
+        widget: string
+      - label: "描述"
+        name: description
+        widget: text
+        required: false
+      - label: "内容"
+        name: body
+        widget: markdown
+
+  # ---------- 可视化图库 ----------
+  - name: visualizations
+    label: "可视化图库"
+    label_singular: "图表"
+    folder: docs/visualization
+    create: true
+    delete: true
+    path: "{{slug}}"
+    preview_path: "visualization/{{slug}}"
+    fields:
+      - label: "标题"
+        name: title
+        widget: string
+      - label: "描述"
+        name: description
+        widget: text
+        required: false
+      - label: "内容"
+        name: body
+        widget: markdown
+
+  # ---------- AI 工作流 ----------
+  - name: ai_workflows
+    label: "AI 工作流"
+    label_singular: "工作流"
+    folder: docs/ai-workflows
+    create: true
+    delete: true
+    path: "{{slug}}"
+    preview_path: "ai-workflows/{{slug}}"
+    fields:
+      - label: "标题"
+        name: title
+        widget: string
+      - label: "描述"
+        name: description
+        widget: text
+        required: false
+      - label: "内容"
+        name: body
+        widget: markdown
+
+  # ---------- R 代码配方 ----------
+  - name: code_recipes_r
+    label: "代码配方 - R"
+    label_singular: "R 配方"
+    folder: docs/code-recipes/R
+    create: true
+    delete: true
+    path: "{{slug}}"
+    preview_path: "code-recipes/R/{{slug}}"
+    fields:
+      - label: "标题"
+        name: title
+        widget: string
+      - label: "描述"
+        name: description
+        widget: text
+        required: false
+      - label: "内容"
+        name: body
+        widget: markdown
+
+  # ---------- SAS 代码配方 ----------
+  - name: code_recipes_sas
+    label: "代码配方 - SAS"
+    label_singular: "SAS 配方"
+    folder: docs/code-recipes/SAS
+    create: true
+    delete: true
+    path: "{{slug}}"
+    preview_path: "code-recipes/SAS/{{slug}}"
+    fields:
+      - label: "标题"
+        name: title
+        widget: string
+      - label: "描述"
+        name: description
+        widget: text
+        required: false
+      - label: "内容"
+        name: body
+        widget: markdown
+
+  # ---------- Python 代码配方 ----------
+  - name: code_recipes_python
+    label: "代码配方 - Python"
+    label_singular: "Python 配方"
+    folder: docs/code-recipes/python
+    create: true
+    delete: true
+    path: "{{slug}}"
+    preview_path: "code-recipes/python/{{slug}}"
+    fields:
+      - label: "标题"
+        name: title
+        widget: string
+      - label: "描述"
+        name: description
+        widget: text
+        required: false
+      - label: "内容"
+        name: body
+        widget: markdown
+
+  # ---------- 报告模板 ----------
+  - name: report_templates
+    label: "报告模板"
+    label_singular: "模板"
+    folder: docs/report-templates
+    create: true
+    delete: true
+    path: "{{slug}}"
+    preview_path: "report-templates/{{slug}}"
+    fields:
+      - label: "标题"
+        name: title
+        widget: string
+      - label: "描述"
+        name: description
+        widget: text
+        required: false
+      - label: "内容"
+        name: body
+        widget: markdown
+
+  # ---------- 参考资料 ----------
+  - name: references
+    label: "参考资料"
+    label_singular: "参考"
+    folder: docs/references
+    create: true
+    delete: true
+    path: "{{slug}}"
+    preview_path: "references/{{slug}}"
+    fields:
+      - label: "标题"
+        name: title
+        widget: string
+      - label: "描述"
+        name: description
+        widget: text
+        required: false
+      - label: "内容"
+        name: body
+        widget: markdown
