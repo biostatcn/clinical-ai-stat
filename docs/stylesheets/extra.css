@@ -55,27 +55,55 @@ body {
 }
 
 /* ============================================================
-   Recent updates — homepage
+   Stat cards — top metrics
    ============================================================ */
-.updates-list h3 {
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-  margin-bottom: 0.25rem;
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin: 2em 0;
+}
+
+.stat-grid .stat-card {
+  background: var(--md-primary-fg-color--transparent);
+  border: 1px solid var(--md-default-fg-color--lightest);
+  border-radius: 10px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.stat-grid .stat-card:hover {
+  box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+  transform: translateY(-3px);
+  border-color: var(--md-primary-fg-color);
+}
+
+.stat-grid .stat-card .stat-number {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--md-primary-fg-color);
+  line-height: 1.2;
+}
+
+.stat-grid .stat-card .stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--md-default-fg-color);
+  margin-top: 0.2rem;
+}
+
+.stat-grid .stat-card .stat-desc {
+  font-size: 0.75rem;
   color: var(--md-default-fg-color--light);
-  font-weight: 500;
+  margin-top: 0.15rem;
 }
 
-.updates-list ul {
-  margin-top: 0;
-}
-
-.updates-list li {
-  font-size: 0.9rem;
-  line-height: 1.7;
-}
-
-/* Responsive */
+/* Responsive: 2x2 on mobile */
 @media (max-width: 540px) {
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
   .card-grid {
     grid-template-columns: 1fr;
   }

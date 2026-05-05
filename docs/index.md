@@ -8,7 +8,28 @@ title: "Clinical AI Stat"
   临床试验 AI 统计分析知识库 —— 记录、复用、进化
 </p>
 
-<!-- recent-updates -->
+<div class="stat-grid">
+  <a href="methods/" class="stat-card" style="text-decoration:none;">
+    <div class="stat-number">10</div>
+    <div class="stat-label">统计方法</div>
+    <div class="stat-desc">从描述统计到样本量计算</div>
+  </a>
+  <a href="visualization/" class="stat-card" style="text-decoration:none;">
+    <div class="stat-number">10</div>
+    <div class="stat-label">可视化图表</div>
+    <div class="stat-desc">交互式临床统计图形</div>
+  </a>
+  <a href="ai-workflows/" class="stat-card" style="text-decoration:none;">
+    <div class="stat-number">6</div>
+    <div class="stat-label">AI 工作流</div>
+    <div class="stat-desc">Prompt 模板与分析流程</div>
+  </a>
+  <a href="code-recipes/" class="stat-card" style="text-decoration:none;">
+    <div class="stat-number">9</div>
+    <div class="stat-label">代码配方</div>
+    <div class="stat-desc">R / SAS / Python 即用代码</div>
+  </a>
+</div>
 
 <div class="card-grid">
   <a href="methods/" class="card" style="text-decoration:none;">
@@ -34,6 +55,10 @@ title: "Clinical AI Stat"
   <a href="references/" class="card" style="text-decoration:none;">
     <h3>📚 参考资料</h3>
     <p>ICH E6/E9/E10、FDA 指南、临床试验统计术语表</p>
+  </a>
+  <a href="cms/" class="card" style="text-decoration:none;">
+    <h3>⚙️ 内容管理</h3>
+    <p>在线编辑站点内容，自动提交到 GitHub</p>
   </a>
 </div>
 
