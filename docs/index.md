@@ -4,73 +4,63 @@ title: "Clinical AI Stat"
 
 # Clinical AI Stat
 
-> 临床试验 AI 统计分析知识库 —— 记录、复用、进化
+<p style="font-size:1.1rem; color:var(--md-default-fg-color--light); margin-top:-0.5rem;">
+  临床试验 AI 统计分析知识库 —— 记录、复用、进化
+</p>
 
 <div class="stat-grid">
-<div class="stat-card">
-<div class="stat-number">10</div>
-<div class="stat-label">统计方法</div>
+  <a href="methods/" class="stat-card" style="text-decoration:none;">
+    <div class="stat-number">10</div>
+    <div class="stat-label">统计方法</div>
+    <div class="stat-desc">从描述统计到样本量计算</div>
+  </a>
+  <a href="visualization/" class="stat-card" style="text-decoration:none;">
+    <div class="stat-number">10</div>
+    <div class="stat-label">可视化图表</div>
+    <div class="stat-desc">交互式临床统计图形</div>
+  </a>
+  <a href="ai-workflows/" class="stat-card" style="text-decoration:none;">
+    <div class="stat-number">6</div>
+    <div class="stat-label">AI 工作流</div>
+    <div class="stat-desc">Prompt 模板与分析流程</div>
+  </a>
+  <a href="code-recipes/" class="stat-card" style="text-decoration:none;">
+    <div class="stat-number">9</div>
+    <div class="stat-label">代码配方</div>
+    <div class="stat-desc">R / SAS / Python 即用代码</div>
+  </a>
 </div>
-<div class="stat-card">
-<div class="stat-number">10</div>
-<div class="stat-label">可视化图表</div>
-</div>
-<div class="stat-card">
-<div class="stat-number">6</div>
-<div class="stat-label">AI 工作流</div>
-</div>
-<div class="stat-card">
-<div class="stat-number">9</div>
-<div class="stat-label">代码配方</div>
-</div>
-</div>
-
----
-
-## 快速入口
 
 <div class="card-grid">
-<div class="card">
-<h3><a href="methods/">📊 统计方法</a></h3>
-<p>描述统计、假设检验、混合模型、生存分析等常用方法的 AI 辅助实现</p>
+  <a href="methods/" class="card" style="text-decoration:none;">
+    <h3>📊 统计方法</h3>
+    <p>描述统计、假设检验、ANCOVA、MMRM、生存分析、非参数方法、多重比较校正、样本量计算</p>
+  </a>
+  <a href="visualization/" class="card" style="text-decoration:none;">
+    <h3>📈 可视化图库</h3>
+    <p>森林图、KM 曲线、箱线图、泳道图、瀑布图、火山图、热图、CONSORT 流程图、个体轨迹图、交互作用图</p>
+  </a>
+  <a href="ai-workflows/" class="card" style="text-decoration:none;">
+    <h3>🤖 AI 工作流</h3>
+    <p>Prompt 模板库、分析流程、代码生成技巧、结果解读、报告撰写、审查清单</p>
+  </a>
+  <a href="code-recipes/" class="card" style="text-decoration:none;">
+    <h3>💻 代码配方</h3>
+    <p>R 数据导入/清洗/分析、SAS 数据导入/清洗/宏、Python 数据导入/清洗/分析</p>
+  </a>
+  <a href="report-templates/" class="card" style="text-decoration:none;">
+    <h3>📋 报告模板</h3>
+    <p>统计分析报告模板、表格/图形规范、交付检查清单</p>
+  </a>
+  <a href="references/" class="card" style="text-decoration:none;">
+    <h3>📚 参考资料</h3>
+    <p>ICH E6/E9/E10、FDA 指南、临床试验统计术语表</p>
+  </a>
+  <a href="cms/" class="card" style="text-decoration:none;">
+    <h3>⚙️ 内容管理</h3>
+    <p>在线编辑站点内容，自动提交到 GitHub</p>
+  </a>
 </div>
-<div class="card">
-<h3><a href="visualization/">📈 可视化图库</a></h3>
-<p>森林图、KM 曲线、泳道图等交互式临床统计图表，附完整代码</p>
-</div>
-<div class="card">
-<h3><a href="ai-workflows/">🤖 AI 工作流</a></h3>
-<p>Prompt 模板、分析流程、代码生成技巧与审查清单</p>
-</div>
-<div class="card">
-<h3><a href="code-recipes/">💻 代码配方</a></h3>
-<p>R / SAS / Python 常用代码片段，即用即取</p>
-</div>
-<div class="card">
-<h3><a href="report-templates/">📋 模板</a></h3>
-<p>统计分析报告、图表规范、交付检查清单模板</p>
-</div>
-<div class="card">
-<h3><a href="references/">📚 参考资料</a></h3>
-<p>监管指南要点、ICH E9、术语表</p>
-</div>
-<div class="card">
-<h3><a href="cms/">⚙️ 内容管理</a></h3>
-<p>Decap CMS 可视化编辑器，在线管理站点内容</p>
-</div>
-</div>
-
----
-
-## 使用说明
-
-| 操作 | 方法 |
-|------|------|
-| 📖 **浏览** | 左侧导航栏选择模块，或上方快速入口点击 |
-| 🔍 **搜索** | 顶部搜索框全文检索（支持中文） |
-| 📋 **复制代码** | 代码块右上角一键复制 |
-| 🌓 **暗色模式** | 顶部工具栏切换明暗主题 |
-| 📱 **多端适配** | 桌面 / 平板 / 手机均可使用 |
 
 ---
 
