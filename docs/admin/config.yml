@@ -3,7 +3,7 @@
 
 backend:
   name: github
-  repo: shinellm/clinical-ai-stat
+  repo: biostatcn/clinical-ai-stat
   branch: main
   # OAuth proxy for GitHub authentication
   # You can deploy your own: https://github.com/vencax/netlify-cms-github-oauth-provider

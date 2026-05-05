@@ -28,7 +28,7 @@ mkdocs serve -a localhost:8765
 git push
 ```
 
-在线访问：`https://shinellm.github.io/clinical-ai-stat/`
+在线访问：`https://biostatcn.github.io/clinical-ai-stat/`
 
 ## 项目结构
 

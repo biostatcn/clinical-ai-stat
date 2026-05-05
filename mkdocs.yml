@@ -1,10 +1,10 @@
 site_name: Clinical AI Stat
 site_description: 临床试验 AI 统计分析知识库
-site_url: https://shinellm.github.io/clinical-ai-stat/
+site_url: https://biostatcn.github.io/clinical-ai-stat/
 site_author: ShineXia
 
-repo_name: shinellm/clinical-ai-stat
-repo_url: https://github.com/shinellm/clinical-ai-stat
+repo_name: biostatcn/clinical-ai-stat
+repo_url: https://github.com/biostatcn/clinical-ai-stat
 
 theme:
   name: material
@@ -50,7 +50,7 @@ extra:
     description: 本站使用必要的存储技术以提升浏览体验。
   social:
     - icon: fontawesome/brands/github
-      link: https://github.com/shinellm/clinical-ai-stat
+      link: https://github.com/biostatcn/clinical-ai-stat
 
 copyright: Copyright &copy; 2026 ShineXia
 

@@ -45,7 +45,7 @@ title: "内容管理"
 | 字段 | 值 |
 |------|-----|
 | Application name | `clinical-ai-stat-cms` |
-| Homepage URL | `https://shinellm.github.io/clinical-ai-stat/` |
+| Homepage URL | `https://biostatcn.github.io/clinical-ai-stat/` |
 | Authorization callback URL | `https://cms-auth-github.vercel.app/api/auth` |
 
 ### 2. 获取 Client ID 和 Secret
@@ -63,4 +63,4 @@ title: "内容管理"
 
 ### 4. 访问 CMS
 
-部署完成后，访问 `https://shinellm.github.io/clinical-ai-stat/admin/` 开始使用。
+部署完成后，访问 `https://biostatcn.github.io/clinical-ai-stat/admin/` 开始使用。
